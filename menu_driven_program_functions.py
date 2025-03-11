@@ -17,24 +17,23 @@ def even_odd_checker_action():
 def handle_menu_choice(choice):
     if choice == 1:
         greet_user()
+        return False  # Continue the loop
     elif choice == 2:
         even_odd_checker_action()
+        return False  # Continue the loop
     elif choice == 3:
         print("Exiting program. Goodbye!")
-        return True
+        return True  # Signal to terminate the loop
     else:
         print("Invalid choice. Please select a valid option.")
-        return False
+        return False  # Continue the loop
 
 def main():
     while True:
         display_menu()
-        try:
-            choice = int(input("Enter your choice (1-3): "))
-            if handle_menu_choice(choice):
-                break
-        except ValueError:
-            print("Invalid input. Please enter a number between 1 and 3.")
+        choice = int(input("Enter your choice (1-3): "))
+        if handle_menu_choice(choice):
+            break
 
 if __name__ == "__main__":
     main()
