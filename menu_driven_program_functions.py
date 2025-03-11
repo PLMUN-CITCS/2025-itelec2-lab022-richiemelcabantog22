@@ -29,9 +29,12 @@ def handle_menu_choice(choice):
 def main():
     while True:
         display_menu()
-        choice = int(input("Enter your choice (1-3): "))
-        if handle_menu_choice(choice):
-            break
+        try:
+            choice = int(input("Enter your choice (1-3): "))
+            if handle_menu_choice(choice):
+                break
+        except ValueError:
+            print("Invalid input. Please enter a number between 1 and 3.")
 
 if __name__ == "__main__":
     main()
